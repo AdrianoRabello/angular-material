@@ -1,0 +1,67 @@
+<div>
+
+</div>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <!--  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+        <form [formGroup]="form">
+
+            <mat-grid-list cols="1" rowHeight="100px">
+
+                <mat-form-field appearance="outline" class="example-container">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="nome">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="1" rowHeight="100px">
+
+
+                <mat-form-field appearance="outline" class="example-container">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="email">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </mat-grid-list>
+        </form>
+
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-end">
+        <button mat-raised-button color="primary" [disabled]="!form.valid">salvar</button>
+        <button mat-raised-button color="danger" [disabled]="form.valid">salvar</button>
+
+    </mat-card-actions>
+</mat-card>
+
+
+
+
+<app-cbmes-card title="Buttons">
+    <div class="col-sm-12">
+
+        <button mat-raised-button>Button</button>
+    </div>
+</app-cbmes-card>
+
+<app-cbmes-card title="Buttons" descripton="tesre">
+
+   
+    <button mat-button>click-me</button>
+</app-cbmes-card>
+
+<app-cbmes-card title="Buttons" descripton="teste"> 
+    
+    
+   
+ <mat-spinner color="danger" color="warn" *ngIf="showSpinner"></mat-spinner>
+ <button mat-raised-button (click)="loadData()">Button</button>
+</app-cbmes-card>

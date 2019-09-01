@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [(opened)]="opened" mode="side">
+        <mat-list>
+
+            <mat-list-item> <button mat-raised-button class="btn btn-block">Primary</button></mat-list-item>
+            <mat-list-item> Salt </mat-list-item>
+            <mat-list-item> Paprika </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!--  <button mat-raised-button color="primary" (click)="opened=!opened">click</button> -->
+        <button mat-raised-button color="primary" (click)="sidenav.toggle()">click</button>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
