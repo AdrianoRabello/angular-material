@@ -1,3 +1,4 @@
+
 import { ROUTES } from './app.routes';
 import { MeterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +13,11 @@ import { RouterModule } from '@angular/router';
 import { ImputMaterialComponent } from './shared/imput-material/imput-material.component';
 import { CbmesCardComponent } from './shared/cbmes-card/cbmes-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MenuComponent } from './menu/menu.component';
+import { CategoriaService } from './form-material/services/categoria.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DatatableComponent } from './shared/datatable/datatable.component';
+
 
 
 @NgModule({
@@ -20,17 +26,23 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormMaterialComponent,
     ImputMaterialComponent,
     CbmesCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    MenuComponent,
+    DatatableComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MeterialModule,
+    
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    CategoriaService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
