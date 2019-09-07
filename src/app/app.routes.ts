@@ -1,3 +1,4 @@
+import { CategoriasComponent } from './categorias/categorias.component';
 import { FormMaterialComponent } from './form-material/form-material.component';
 
 import {Routes} from '@angular/router'
@@ -11,6 +12,7 @@ export const ROUTES: Routes = [
     {path: 'form',component:FormMaterialComponent},
     {path: 'navbar',component:NavbarComponent},
     {path: 'card',component:CbmesCardComponent},
+    {path: 'categorias',component:CategoriasComponent},
    
     /*{path: 'restaurants',component:RestaurantsComponent},
     {path: 'restaurants/:id',component:RestaurantDetailComponent,

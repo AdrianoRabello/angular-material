@@ -17,11 +17,11 @@ export class CategoriaService {
 
     }
 
-    public getCategorias(){
+    public getCategorias():Observable<Categoria[]>{
 
         //console.log("dentro do service")
 
-        return this.http.get(`${CURSO_MC}categorias`)
+        return this.http.get<Categoria[]>(`${CURSO_MC}categorias`)
         //return this.http.get(`${CURSO_MC}categorias`).pipe(map(item: Categoria[]) => {response.json()})
 
         /*  return this.http.get(`${CURSO_MC}categorias`).pipe(

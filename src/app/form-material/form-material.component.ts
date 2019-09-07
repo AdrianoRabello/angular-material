@@ -14,7 +14,7 @@ export class FormMaterialComponent implements OnInit {
 
     form: FormGroup;
     showSpinner = false;
-    private categorias: Categoria[];
+    public categorias:Categoria [] = [];
 
     constructor(private formBuilder: FormBuilder, private catergoriaService: CategoriaService) {
 
@@ -29,7 +29,11 @@ export class FormMaterialComponent implements OnInit {
 
         })
 
-        this.getCategorias()
+        this.catergoriaService.getCategorias().subscribe(response => this.categorias = response)
+
+        setTimeout(function(){
+            console.log(this.categorias);
+        },3000)
      
     }
 
@@ -48,7 +52,7 @@ export class FormMaterialComponent implements OnInit {
 
         //console.log(this.categorias)
         //return this.catergoriaService.getCategorias().subscribe((response)=>{console.log(response)})
-       this.catergoriaService.getCategorias().subscribe((response)=> console.log(response))
+       this.catergoriaService.getCategorias().subscribe(response => this.categorias = response)
        //this.catergoriaService.getCategorias().subscribe((response)=>{ this.categorias= response})
 
 

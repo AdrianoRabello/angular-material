@@ -17,6 +17,11 @@ import { MenuComponent } from './menu/menu.component';
 import { CategoriaService } from './form-material/services/categoria.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DatatableComponent } from './shared/datatable/datatable.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { CategoriaFormComponent } from './categorias/categoria-form/categoria-form.component';
+import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
+
+
 
 
 
@@ -28,7 +33,12 @@ import { DatatableComponent } from './shared/datatable/datatable.component';
     CbmesCardComponent,
     NavbarComponent,
     MenuComponent,
-    DatatableComponent
+    DatatableComponent,
+    CategoriasComponent,
+    CategoriaFormComponent,
+    CategoriaListComponent,
+  
+
   ],
   imports: [
     BrowserModule,

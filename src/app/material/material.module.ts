@@ -71,6 +71,7 @@ const MaterialComponets = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule
+    
 
 ]
 
