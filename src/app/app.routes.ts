@@ -13,6 +13,7 @@ export const ROUTES: Routes = [
     {path: 'navbar',component:NavbarComponent},
     {path: 'card',component:CbmesCardComponent},
     {path: 'categorias',component:CategoriasComponent},
+    {path: 'cbmescard',component:CbmesCardComponent},
    
     /*{path: 'restaurants',component:RestaurantsComponent},
     {path: 'restaurants/:id',component:RestaurantDetailComponent,

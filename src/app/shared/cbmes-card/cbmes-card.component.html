@@ -27,7 +27,15 @@
 
     <div class='row'>
         <p class="text-muted small">{{descripton}}</p>
+
+        <form [formGroup]="form" class="form-group">
+            <label for="">Message</label>
+            <input type="text" class="form-control" placeholder="" aria-describedby="helpId" formControlName="message">
+        </form>
     </div>
+
+    <button class="btn btn-primary mt-5" (click)="sendMessage('dend message')">sendMEssage</button>
+
     <div class="row">
         <ng-content></ng-content>
     </div>

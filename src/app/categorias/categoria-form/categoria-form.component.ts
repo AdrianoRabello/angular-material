@@ -14,21 +14,25 @@ import { CategoriaService } from '../service/categoria.service';
 export class CategoriaFormComponent implements OnInit {
 
     form: FormGroup
-    constructor(private formBuilder: FormBuilder,private categoriaService:CategoriaService) { }
+    constructor(private formBuilder: FormBuilder, private categoriaService: CategoriaService) { }
 
     ngOnInit() {
 
         this.form = this.formBuilder.group({
-            nome: this.formBuilder.control('',[Validators.required]),
+            nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
             id: this.formBuilder.control('')
         })
     }
 
 
-    save(categoria:Categoria){
-        
-        //this.categoriaService.save(categoria).subscribe((response) => {console.log(response)})
+    save(categoria: Categoria) {
+
+       //this.categoriaService.save(categoria).subscribe((response: Categoria) => {
+            //console.log(categoria)
+        //})
         this.categoriaService.save(categoria);
+
+       
     }
 
 }
