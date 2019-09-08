@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CategoriaService } from './services/categoria.service';
-import { Categoria } from './models/categoria.model';
+
+
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { CategoriaService } from '../categorias/service/categoria.service';
 
 @Component({
     selector: 'app-form-material',
@@ -14,7 +15,7 @@ export class FormMaterialComponent implements OnInit {
 
     form: FormGroup;
     showSpinner = false;
-    public categorias:Categoria [] = [];
+    //public categorias:Categoria [] = [];
 
     constructor(private formBuilder: FormBuilder, private catergoriaService: CategoriaService) {
 
@@ -29,11 +30,11 @@ export class FormMaterialComponent implements OnInit {
 
         })
 
-        this.catergoriaService.getCategorias().subscribe(response => this.categorias = response)
+        //this.catergoriaService.getCategorias().subscribe(response => this.categorias = response)
 
-        setTimeout(function(){
+        /*setTimeout(function(){
             console.log(this.categorias);
-        },3000)
+        },3000)*/
      
     }
 
@@ -52,7 +53,7 @@ export class FormMaterialComponent implements OnInit {
 
         //console.log(this.categorias)
         //return this.catergoriaService.getCategorias().subscribe((response)=>{console.log(response)})
-       this.catergoriaService.getCategorias().subscribe(response => this.categorias = response)
+       //this.catergoriaService.getCategorias().subscribe(response => this.categorias = response)
        //this.catergoriaService.getCategorias().subscribe((response)=>{ this.categorias= response})
 
 
@@ -60,11 +61,11 @@ export class FormMaterialComponent implements OnInit {
 
     save() {
         //console.log("on submit")
-        let categoria = new Categoria(null,this.form.value.nome);
+        //let categoria = new Categoria(null,this.form.value.nome);
 
         //console.log(categoria)
 
-        this.catergoriaService.save(categoria).subscribe((response) =>{ if(response){ console.log(response)}else{ console.log(response)     }})
+        //this.catergoriaService.save(categoria).subscribe((response) =>{ if(response){ console.log(response)}else{ console.log(response)     }})
 
         //console.log(this.form.value)
     }

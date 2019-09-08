@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { CategoriaService } from 'src/app/form-material/services/categoria.service';
+
 import { Categoria } from 'src/app/form-material/models/categoria.model';
+import { CategoriaService } from 'src/app/categorias/service/categoria.service';
 
 
 @Component({

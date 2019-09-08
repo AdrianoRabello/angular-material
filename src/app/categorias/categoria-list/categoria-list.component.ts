@@ -1,7 +1,13 @@
-import { CategoriaService } from './../../form-material/services/categoria.service';
+
+
+
+
 import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
-import { Categoria } from 'src/app/form-material/models/categoria.model';
+
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+
+import { Categoria } from '../models/categoria';
+import { CategoriaService } from '../service/categoria.service';
 
 
 
@@ -13,11 +19,13 @@ import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 })
 export class CategoriaListComponent implements OnInit, AfterViewInit {
 
-    @Input() categorias = [];
+    public categorias:Categoria[] = []
 
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     //public dataSource = ELEMENT_DATA;
-    public dataSource;
+    public dataSource = new MatTableDataSource(this.categorias);
+
+   
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -27,22 +35,38 @@ export class CategoriaListComponent implements OnInit, AfterViewInit {
 
 
     ngAfterViewInit() {
-      
+
     }
 
     ngOnInit() {
 
 
+            
+        this.atulizarLista();
 
+        /*this.categoriaService.currentMessage$.subscribe((res) => {           
+            this.dataSource.data = res;
+        })*/
+
+    }
+
+    getListaCategoria(){
         this.categoriaService.getCategorias().subscribe((response) => {
 
+            //console.log(response)
             this.categorias = response;
-            this.dataSource = new MatTableDataSource(this.categorias)
+            //
+            let categorias = new MatTableDataSource(this.categorias)
 
-
+            this.dataSource = categorias;
 
         })
-        
+    }
+
+    atulizarLista(){
+        this.categoriaService.currentMessage$.subscribe((res) => {           
+            this.dataSource.data = res;
+        })
     }
 
 
@@ -53,17 +77,40 @@ export class CategoriaListComponent implements OnInit, AfterViewInit {
 
         let found = this.categorias.indexOf(categoria);
 
-        this.categorias = this.removeByIndex(this.categorias,found)       
+        this.categorias = this.removeByIndex(this.categorias, found)
 
-        this.dataSource = this.categorias
+        //this.categoriaService.atulizarlista
+        //let flag = new MatTableDataSource(this.categorias)
 
-       
+        //this.dataSource = flag;
+
+        //)
+
+        this.dataSource.data = this.categorias;
+
+
     }
 
     removeByIndex(array, index) {
         return array.filter(function (el, i) {
-          return index !== i;
+            return index !== i;
         });
-      }
+    }
+
+
+    delete(categoria: Categoria) {
+
+        this.categoriaService.delete(categoria).subscribe((res) => {
+            console.log(res)
+            this.getListaCategoria()
+        })
+        
+        //this.atulizarLista()
+        //this.remove(categoria);
+     
+        
+
+
+    }
 
 }

@@ -1,3 +1,6 @@
+import { CategoriaService } from './categorias/service/categoria.service';
+
+
 
 import { ROUTES } from './app.routes';
 import { MeterialModule } from './material/material.module';
@@ -14,7 +17,7 @@ import { ImputMaterialComponent } from './shared/imput-material/imput-material.c
 import { CbmesCardComponent } from './shared/cbmes-card/cbmes-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenuComponent } from './menu/menu.component';
-import { CategoriaService } from './form-material/services/categoria.service';
+
 import { HttpClientModule } from '@angular/common/http';
 import { DatatableComponent } from './shared/datatable/datatable.component';
 import { CategoriasComponent } from './categorias/categorias.component';
@@ -51,7 +54,7 @@ import { CategoriaListComponent } from './categorias/categoria-list/categoria-li
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    CategoriaService,
+    CategoriaService
   ],
   bootstrap: [AppComponent]
 })

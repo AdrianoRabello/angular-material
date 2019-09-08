@@ -1,7 +1,8 @@
-import { CategoriaService } from './../form-material/services/categoria.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../form-material/models/categoria.model';
 import { stringify } from 'querystring';
+import { CategoriaService } from './service/categoria.service';
 
 @Component({
   selector: 'app-categorias',

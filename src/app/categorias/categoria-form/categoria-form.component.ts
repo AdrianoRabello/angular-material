@@ -1,7 +1,10 @@
-import { Categoria } from 'src/app/form-material/models/categoria.model';
-import { CategoriaService } from './../../form-material/services/categoria.service';
+import { Categoria } from '../models/categoria';
+
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CategoriaService } from '../service/categoria.service';
+
 
 @Component({
     selector: 'app-categoria-form',
@@ -24,7 +27,8 @@ export class CategoriaFormComponent implements OnInit {
 
     save(categoria:Categoria){
         
-        this.categoriaService.save(categoria).subscribe((response) => {console.log(response)})
+        //this.categoriaService.save(categoria).subscribe((response) => {console.log(response)})
+        this.categoriaService.save(categoria);
     }
 
 }
