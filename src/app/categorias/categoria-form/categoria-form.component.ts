@@ -1,9 +1,11 @@
+
 import { Categoria } from '../models/categoria';
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CategoriaService } from '../service/categoria.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,7 +16,12 @@ import { CategoriaService } from '../service/categoria.service';
 export class CategoriaFormComponent implements OnInit {
 
     form: FormGroup
-    constructor(private formBuilder: FormBuilder, private categoriaService: CategoriaService) { }
+    @Input() categoria:Categoria;
+    public idCurso =5;
+    constructor(private formBuilder: FormBuilder, private categoriaService: CategoriaService,private route:ActivatedRoute) { 
+
+       console.log( this.route.snapshot.params['id']);
+    }
 
     ngOnInit() {
 
@@ -22,6 +29,12 @@ export class CategoriaFormComponent implements OnInit {
             nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
             id: this.formBuilder.control('')
         })
+
+      
+       this.route.params.subscribe((valor) =>{console.log(valor.id)})
+      
+
+       
     }
 
 
@@ -33,6 +46,13 @@ export class CategoriaFormComponent implements OnInit {
         this.categoriaService.save(categoria);
 
        
+    }
+
+    ngOnChanges(categoria): void {
+        this.categoria = categoria;
+
+        
+        
     }
 
 }

@@ -1,3 +1,5 @@
+import { CategoriaDetailComponent } from './categorias/categoria-detail/categoria-detail.component';
+import { CategoriaFormComponent } from './categorias/categoria-form/categoria-form.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { FormMaterialComponent } from './form-material/form-material.component';
 
@@ -13,6 +15,7 @@ export const ROUTES: Routes = [
     {path: 'navbar',component:NavbarComponent},
     {path: 'card',component:CbmesCardComponent},
     {path: 'categorias',component:CategoriasComponent},
+    {path: 'categorias/:id',component:CategoriaDetailComponent},
     {path: 'cbmescard',component:CbmesCardComponent},
    
     /*{path: 'restaurants',component:RestaurantsComponent},

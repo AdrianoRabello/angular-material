@@ -5,8 +5,8 @@
 
             <div class="card">
                 <div class="card-body">
-
-                    <app-categoria-form></app-categoria-form>
+                    <!--   {{categoria | json}} -->
+                    <app-categoria-form [categoria]="categoria"></app-categoria-form>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <app-categoria-list> </app-categoria-list>
+                    <app-categoria-list (editEmit)="editCategoria($event)"> </app-categoria-list>
                 </div>
             </div>
         </div>

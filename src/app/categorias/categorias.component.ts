@@ -11,7 +11,7 @@ import { CategoriaService } from './service/categoria.service';
 })
 export class CategoriasComponent implements OnInit {
 
-public categorias= [];
+public categoria:Categoria;
   constructor(private categoriaService:CategoriaService) { }
   
 
@@ -20,6 +20,14 @@ public categorias= [];
     //this.categoriaService.getCategorias().subscribe((data) => {this.categorias = data ; console.log(data)});
 
    
+  }
+
+
+  editCategoria(categoria:Categoria){
+
+    this.categoria = categoria;
+      //console.log("recebendo a categoria clicada do list " + JSON.stringify(categoria))
+      //console.log(this.categoria)
   }
 
 }

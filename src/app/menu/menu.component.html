@@ -1,5 +1,5 @@
-<mat-list role="list">
-    <!--     <mat-list-item role="listitem">
+<!-- <mat-list role="list">
+       <mat-list-item role="listitem">
         <a [routerLink]="['/form']">form</a>
     </mat-list-item>
     <mat-list-item role="listitem">
@@ -7,15 +7,26 @@
     </mat-list-item>
     <mat-list-item role="listitem">
         <a [routerLink]="['/card']">card</a>
-    </mat-list-item> -->
-    <mat-list-item role="categorias">
-        <a [routerLink]="['/categorias']">Categorias</a>
     </mat-list-item>
     <mat-list-item role="categorias">
+        <a [routerLink]="['/categorias']" routerLinkActive="active">Categorias</a>
+    </mat-list-item>
+    <mat-list-item role="categorias" routerLinkActive="active">
         <a [routerLink]="['/cbmescard']">cbmes card</a>
     </mat-list-item>
 
-</mat-list>
+</mat-list> -->
+
+<!-- <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a [routerLink]="['/cbmescard']" routerLinkActive="nav-link active">cbmes card</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+        <a [routerLink]="['/categorias']" routerLinkActive="nav-link active">Categorias</a>
+    </li>
+
+
+</ul> -->
 
 <!-- <mat-menu #appMenu="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="subMenu">FronEnd</button>

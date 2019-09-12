@@ -1,53 +1,63 @@
+
+
+
 import { CURSO_MC } from './../../URL/url';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
-import { Observable, throwError, BehaviorSubject, Subject } from 'rxjs';
-import { map, filter, catchError, mergeMap } from 'rxjs/operators';
+import { HttpClient, HttpClientModule, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Observable,Subject } from 'rxjs';
+
 import { Categoria } from '../models/categoria';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+
 
 
 
 @Injectable()
 export class CategoriaService {
-
-    public merssageSource = new Subject<Categoria[]>();
+   
+    public categoria:Categoria;
+    public categoriaSubject = new Subject<Categoria[]>();
     public message = new Subject<string>();
-    currentMessage$ = this.merssageSource.asObservable();
+    //currentMessage$ = this.merssageSource.asObservable();
     private categorias: Categoria[] = [];
+    public haders = new HttpHeaders({
+        'Content-Type':  'application/json',
+      });
+    
+    
+    constructor(private http: HttpClient) {
+        console.log("dentro do construtor do categoria service ")
+        
+        this.getCategorias();
+    }
 
 
     setMessage(value: string){
         this.message.next(value);
     }
 
-    getMessage(){
-        return this.message.asObservable();
+    getList(){
+
+        this.getCategorias()
+        this.categoriaSubject.next(this.categorias);
+        return this.categoriaSubject.asObservable();
     }
 
-    constructor(private http: HttpClient) {
-        console.log("dentro fdo construtor")
-        this.getCategorias().subscribe((res:Categoria[])=> {this.categorias= res; this.merssageSource.next(this.categorias)});
-    }
+    
 
-    public getCategorias():Observable<Categoria[]>{
+    private  getCategorias(){
 
-        return this.http.get<Categoria[]>(`${CURSO_MC}categorias`)
+        this.http.get<Categoria[]>(`${CURSO_MC}categorias`).subscribe(res => {
+
+            this.categorias = res
+            this.categoriaSubject.next(this.categorias)
+        })
+
+        
         
     }
 
-    pegarCategorias(){
-        return this.categorias;
-    }
-
-    public atulizarlista(){
-        //this.getCategorias().subscribe((res)=> {;this.categorias = res; this.merssageSource.next(this.categorias)});
-
-
-        //this.merssageSource.next(this.categorias);
-    }
-
-
-    getbyId() {
+    gatCategoria() {
 
         let params = new HttpParams().set('id', '1');
 
@@ -59,7 +69,9 @@ export class CategoriaService {
         //return this.http.post(`${CURSO_MC}categorias`, categoria)
         this.http.post(`${CURSO_MC}categorias`, categoria).subscribe((res:Categoria) => {
           this.categorias.push(res)
-          this.merssageSource.next(this.categorias)
+
+          //console.log(this.categorias);
+          this.categoriaSubject.next(this.categorias)
         })
     }
 
@@ -67,10 +79,30 @@ export class CategoriaService {
 
 
         this.remove(categoria);
-        this.merssageSource.next(this.categorias);
+        this.categoriaSubject.next(this.categorias);
         return this.http.delete(`${CURSO_MC}categorias/`+categoria.id)
 
     }
+
+    getCategoria(id: number):Categoria {
+     
+
+        this.categorias.map((categoria:Categoria) => {            
+            if(categoria.id == id){
+                this.categoria = categoria
+            }
+        })
+        
+        return this.categoria;
+
+      
+    }
+
+    update(categoria:Categoria){
+        return this.http.put(`${CURSO_MC}categorias/${categoria.id}`,categoria)
+    }
+
+    
 
 
 
@@ -91,7 +123,7 @@ export class CategoriaService {
         let found = this.categorias.indexOf(categoria);
         this.categorias = this.removeByIndex(this.categorias, found)
 
-        this.merssageSource.next(this.categorias);
+        this.categoriaSubject.next(this.categorias);
     }
 
     removeByIndex(array, index) {

@@ -73,7 +73,7 @@ export class FormMaterialComponent implements OnInit {
 
     getById(){
 
-       this.catergoriaService.getbyId().subscribe((response) => {console.log(response)});
+       this.catergoriaService.gatCategoria().subscribe((response) => {console.log(response)});
 
 
      

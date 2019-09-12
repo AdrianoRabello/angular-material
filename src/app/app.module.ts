@@ -23,6 +23,7 @@ import { DatatableComponent } from './shared/datatable/datatable.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { CategoriaFormComponent } from './categorias/categoria-form/categoria-form.component';
 import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
+import { CategoriaDetailComponent } from './categorias/categoria-detail/categoria-detail.component';
 
 
 
@@ -40,6 +41,7 @@ import { CategoriaListComponent } from './categorias/categoria-list/categoria-li
     CategoriasComponent,
     CategoriaFormComponent,
     CategoriaListComponent,
+    CategoriaDetailComponent,
   
 
   ],

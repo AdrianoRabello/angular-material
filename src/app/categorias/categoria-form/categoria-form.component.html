@@ -1,3 +1,17 @@
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a [routerLink]="['/cbmescard']" routerLinkActive="nav-link active">cbmes card</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+        <a [routerLink]="['/categorias']" routerLinkActive="nav-link active">Categorias</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+        <a [routerLink]="['/categorias',idCurso]" routerLinkActive="nav-link active">Card</a>
+    </li>
+
+
+</ul>
+
 <div class="row">
     <form [formGroup]="form">
         <mat-form-field>
@@ -7,3 +21,5 @@
         <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save(form.value)">Primary</button>
     </form>
 </div>
+
+{{categoria | json}}

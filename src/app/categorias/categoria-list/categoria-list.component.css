@@ -2,10 +2,18 @@ table {
     width: 100%;
 }
 
-.material-icons {
+.remove {
     color: red;
 }
 
-.material-icons:hover {
+.remove:hover {
+    cursor: pointer;
+}
+
+.edit {
+    color: green;
+}
+
+.edit:hover {
     cursor: pointer;
 }

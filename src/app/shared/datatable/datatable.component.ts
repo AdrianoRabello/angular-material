@@ -28,7 +28,7 @@ export class DatatableComponent implements OnInit {
 
   ngOnInit() {
 
-    this.categoriaService.getCategorias()
+    //this.categoriaService.getCategorias()
     
   }
 

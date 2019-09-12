@@ -28,9 +28,13 @@
 
             </th>
             <td mat-cell *matCellDef="let element">
-                <i class="material-icons" (click)="delete(element)">
+                <!-- (click)="edit(element)"  -->
+                <span class="material-icons edit" [routerLink]="[ '/categorias', element.id ]">
+                    create
+                </span>
+                <span class="material-icons remove" (click)="delete(element)">
                     highlight_off
-                    </i>
+                </span>
 
             </td>
         </ng-container>

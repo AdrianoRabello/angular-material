@@ -21,9 +21,9 @@ export class CbmesCardComponent implements OnInit {
             message: this.formBuilder.control('',[Validators.required])
         })
 
-        this.service.getMessage()
+        /*this.service.getMessage()
         .pipe(tap(value => console.log("detro do datp. Value= ",value,this.title)))
-        .subscribe((res) => {this.title = res})
+        .subscribe((res) => {this.title = res})*/
         
     }
 

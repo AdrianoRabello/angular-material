@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs';
 
-import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Categoria } from '../models/categoria';
 import { CategoriaService } from '../service/categoria.service';
@@ -12,6 +13,8 @@ import { CategoriaService } from '../service/categoria.service';
 export class CategoriaListComponent implements OnInit, AfterViewInit {
 
     public categorias:Categoria[] = []
+    public categorias$:Observable<Categoria[]>;
+    @Output() editEmit = new EventEmitter<Categoria>();
 
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     //public dataSource = ELEMENT_DATA;
@@ -25,6 +28,7 @@ export class CategoriaListComponent implements OnInit, AfterViewInit {
 
     constructor(private categoriaService: CategoriaService) { 
 
+       
     }
 
 
@@ -34,16 +38,32 @@ export class CategoriaListComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
 
+        this.getList()
+    }
+
+
+    edit(categoria:Categoria){
+        //console.log(categoria)
+        this.editEmit.emit(categoria);
+    }
+
 
             
-       this.categoriaService.currentMessage$.subscribe((res) => {           
-            this.dataSource.data = res;
-        })
+    getList(){
+
+      this.categorias$ = this.categoriaService.getList()
+
+      this.categorias$.subscribe((res) => {
+        this.categorias = res
+        this.dataSource.data = this.categorias
+      })
+
+        
 
     }
 
     getListaCategoria(){
-        this.categoriaService.getCategorias().subscribe((response) => {          
+        this.categoriaService.getList().subscribe((response) => {          
             this.dataSource.data = response;
         })
     }
@@ -52,6 +72,8 @@ export class CategoriaListComponent implements OnInit, AfterViewInit {
         
         this.categoriaService.delete(categoria).subscribe((res) => {
             console.log(res)
+
+            this.getListaCategoria()
         
         })
     }
