@@ -24,6 +24,10 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { CategoriaFormComponent } from './categorias/categoria-form/categoria-form.component';
 import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
 import { CategoriaDetailComponent } from './categorias/categoria-detail/categoria-detail.component';
+import { NgContentComponent } from './ng-content/ng-content.component';
+import { FundoAmareloDirective } from './diretivas/fundo-amarelo.directive';
+import { HighlightDirective } from './diretivas/highlight.directive';
+import { AllowClickDirective } from './diretivas/allow-click.directive';
 
 
 
@@ -42,6 +46,10 @@ import { CategoriaDetailComponent } from './categorias/categoria-detail/categori
     CategoriaFormComponent,
     CategoriaListComponent,
     CategoriaDetailComponent,
+    NgContentComponent,
+    FundoAmareloDirective,
+    HighlightDirective,
+    AllowClickDirective,
   
 
   ],

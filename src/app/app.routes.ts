@@ -6,6 +6,7 @@ import { FormMaterialComponent } from './form-material/form-material.component';
 import {Routes} from '@angular/router'
 import { NavbarComponent } from './navbar/navbar.component';
 import { CbmesCardComponent } from './shared/cbmes-card/cbmes-card.component';
+import { NgContentComponent } from './ng-content/ng-content.component';
 
 
 
@@ -17,6 +18,7 @@ export const ROUTES: Routes = [
     {path: 'categorias',component:CategoriasComponent},
     {path: 'categorias/:id',component:CategoriaDetailComponent},
     {path: 'cbmescard',component:CbmesCardComponent},
+    {path: 'ng-content',component:NgContentComponent},
    
     /*{path: 'restaurants',component:RestaurantsComponent},
     {path: 'restaurants/:id',component:RestaurantDetailComponent,

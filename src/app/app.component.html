@@ -1,27 +1,38 @@
-<div class="wrapper">
+<div class="container-fluid">
 
-    <!-- Início do header -->
-
-    <!-- Fim do header -->
-
-    <!-- Full Width Column -->
     <div class="content-wrapper">
         <div class="container-fluid mt-4">
-            <app-menu></app-menu>
+            <!-- <app-menu></app-menu> -->
+            <!-- <router-outlet></router-outlet> -->
+        </div>
+    </div>
 
-            <router-outlet></router-outlet>
+    <div class="row">
+        <div class="col-md-12">
+            <code>ng content</code>
+            <app-ng-content>
+                <h5 class="title">Title</h5>
+                <p class=" body text-danger">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque sed amet,
+                    eum ducimus temporibus accusantium dolorum cupiditate distinctio ipsa aliquid. A omnis aspernatur
+                    beatae dolores quaerat unde eveniet? Nemo, quos?</p>
+            </app-ng-content>
 
         </div>
     </div>
 
-    <!-- snakbar deve ser aqui -->
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="pull-right hidden-xs">
-
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <code>Diretivas para alterar atributos do componentes</code>
+            <div class="card">
+                <div class="card-body">
+                    <div appFundoAmarelo>
+                        <h5>Diretiva fundo marelo</h5>
+                    </div>
+                    <button type="button" class="btn btn-primary" allowClick="['ROLE_ADMIN']">
+                        Diretiva disable
+                    </button>
+                </div>
             </div>
-
         </div>
-    </footer>
+    </div>
 </div>
