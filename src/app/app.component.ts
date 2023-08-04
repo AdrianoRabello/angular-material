@@ -7,4 +7,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularMterial';
+
+
+  public liks:Link[] = [
+    {
+      label:'HOME',
+      roles:['ROLE_ADMIN']
+    },
+    {
+      label:'ADMIN',
+      roles:['ROLE_ADMIN']
+    }
+  ]
+
+}
+
+
+export class Link{
+    
+  constructor(public label:string,public roles:string[]){
+
+  }
 }

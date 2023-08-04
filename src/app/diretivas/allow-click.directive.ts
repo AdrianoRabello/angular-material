@@ -9,6 +9,8 @@ export class AllowClickDirective {
 
   private _canAccess = false;
 
+  static cont = 1;
+
   constructor(private _elementRef:ElementRef,private _render:Renderer2) { }
 
   @HostListener('mouseenter') onMouseOver(){
@@ -22,10 +24,13 @@ export class AllowClickDirective {
   }
 
   @Input()
-  set allowClick(alowedRoles:Array<string>){
-    this._canAccess = this._allowedRoles.some(role => alowedRoles.includes(role));
+  set allowClick(roles:Array<string>){
+    console.log("roles",roles)
+    this._canAccess = this._allowedRoles.some(allowRole => roles.includes(allowRole.toUpperCase()));
     console.log("_canAcess",this._canAccess)
+    console.log("const",AllowClickDirective.cont)
     this.applyAcess();
+    AllowClickDirective.cont++
   }
 
 

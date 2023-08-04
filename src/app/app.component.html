@@ -28,9 +28,27 @@
                     <div appFundoAmarelo>
                         <h5>Diretiva fundo marelo</h5>
                     </div>
+                    <div highlight>
+                        <h5>Diretiva fundo marelo</h5>
+                    </div>
                     <button type="button" class="btn btn-primary" allowClick="['ROLE_ADMIN']">
                         Diretiva disable
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <code>Diretivas para alterar atributos do componentes</code>
+            <div class="card">
+                <div class="card-body">
+                    <div  class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button *ngFor="let link of liks" [allowClick]="[link.roles]" class="btn btn-primary my-2" role="tab" aria-controls="v-pills-home" aria-selected="true">{{link?.label}}</button>
+                    </div>
                 </div>
             </div>
         </div>

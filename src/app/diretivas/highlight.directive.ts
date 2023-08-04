@@ -8,13 +8,12 @@ export class HighlightDirective {
   constructor(private _elementRef:ElementRef,private _render:Renderer2) { }
 
   @HostListener('mouseenter') onMouseOver(){
-    // this._render.setStyle(this._elementRef.nativeElement,'background-color','gray')
+    this._render.setStyle(this._elementRef.nativeElement,'background-color','gray')
   }
 
 
   @HostListener('mouseleave') onMouseLeave(){
-    console.log(this._elementRef)
-    this._render.setAttribute(this._elementRef,'disabled','true')
+    this._render.setStyle(this._elementRef.nativeElement,'background-color','white')
   }
 
 
